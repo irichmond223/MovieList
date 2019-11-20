@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MovieList
 {
@@ -33,29 +34,50 @@ namespace MovieList
                 Console.WriteLine("What category are you interested in? ");
                 Console.WriteLine("\n1) Animated\n2) Drama\n3) Horror\n4) Scifi");
 
-                //string input = Validator(movie);
-                string input = Console.ReadLine();
-                int user = int.Parse(input);
+                string userInput = Validator();
+                //string input = "";
+                //int user = Validator(movie);
 
                 foreach (var item in movie)
                 {
-                    if (user == item.categoryCodes && user == 1)
+                    if (userInput.ToLower() == item.Category.ToLower() && userInput == "animated")
                     {
                         Console.WriteLine(item.Title);
                     }
-                    else if (user == item.categoryCodes && user == 2)
+                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "drama")
                     {
                         Console.WriteLine(item.Title);
                     }
-                    else if (user == item.categoryCodes && user == 3)
+                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "horror")
                     {
                         Console.WriteLine(item.Title);
                     }
-                    else if (user == item.categoryCodes && user == 4)
+                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "scifi")
                     {
                         Console.WriteLine(item.Title);
                     }
+
                 }
+
+                //foreach (var item in movie)
+                //{
+                //    if (user == item.categoryCodes && user == 1)
+                //    {
+                //        Console.WriteLine(item.Title);
+                //    }
+                //    else if (user == item.categoryCodes && user == 2)
+                //    {
+                //        Console.WriteLine(item.Title);
+                //    }
+                //    else if (user == item.categoryCodes && user == 3)
+                //    {
+                //        Console.WriteLine(item.Title);
+                //    }
+                //    else if (user == item.categoryCodes && user == 4)
+                //    {
+                //        Console.WriteLine(item.Title);
+                //    }
+                //}
                 bool continueAgain = true;
                 while (continueAgain)
                 {
@@ -99,34 +121,101 @@ namespace MovieList
 
         //}
 
-        //public static string Validator(List<Movie> userInput)
+        public static string Validator()
+        {
+            string stringUserInput = "";
+            do
+            {
+                try
+                {
+                    stringUserInput = Console.ReadLine().ToLower();
+
+                    if (string.IsNullOrEmpty(stringUserInput))
+                    {
+                        Console.WriteLine("Empty input, please try again.");
+                    }
+                }
+                catch (FormatException) //Used when the user typed in in a wrong format
+                {
+                    Console.WriteLine("Please use the correct format. Please try again.");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("An error has occurred. Please try again.");
+                }
+
+            } while (string.IsNullOrEmpty(stringUserInput));
+
+            return stringUserInput;
+        }
+
+        //public static string Validator()
         //{
-        //    bool validateAgain = true;
-        //    bool playAgain = true;
-        //    string stringUserInput = "";
-        //    while(validateAgain)
+        //    bool repeat = true;
+        //    string input = "";
+        //    Regex validate = new Regex(@"^([A-Z-a-z])+$");
+        //    while (repeat)
         //    {
         //        try
         //        {
-        //            stringUserInput = Console.ReadLine();
-        //            //validateAgain = false;
-        //            playAgain = true;
+        //            input = Console.ReadLine();
+        //            if (validate.IsMatch(input))
+        //            {
+        //                repeat = false;
+        //                return input;
+        //            }
+        //            else if (input == String.Empty)
+        //            {
+        //                Console.WriteLine("Input cannot be empty.\n");
+        //                repeat = true;
+        //            }
+        //            else
+        //            {
+        //                Console.WriteLine("Im sorry thats not a valid input. Try again.\n");
+        //                repeat = true;
+        //            }
 
         //        }
         //        catch (FormatException)
         //        {
         //            Console.WriteLine("Please use the correct format. Please try again.");
-        //            //validateAgain = true;
-        //            playAgain = false;
+        //            repeat = true;
+        //        }
+        //        catch (Exception)
+        //        {
+        //            Console.WriteLine("The error has occurred. Try again.\n");
+        //            repeat = true;
+        //        }
+                
+        //    }
+        //    return input;
+        //}
+
+        //public static int Validator(List<Movie> userInput)
+        //{
+        //    bool validateAgain = true;
+        //    int intUserInput = 0;
+        //    while (validateAgain)
+        //    {
+        //        try
+        //        {
+        //            string input = Console.ReadLine();
+        //            intUserInput = int.Parse(input);
+        //            validateAgain = false;
+
+        //        }
+        //        catch (FormatException)
+        //        {
+        //            Console.WriteLine("Please use the correct format. Please try again.");
+        //            validateAgain = true;
         //        }
         //        catch (Exception)
         //        {
         //            Console.WriteLine("An error has occurred. Please try again.");
-        //            //validateAgain = true;
-        //            playAgain = false;
+        //            validateAgain = true;
         //        }
-        //    } 
-        //    return stringUserInput;
+        //    }
+        //    return intUserInput;
 
         //}
     }

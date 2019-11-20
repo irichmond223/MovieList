@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ilona\\source\\repos\\C#\\MovieList\\MovieList\\MovieList.csproj",
+      "projectUniqueName": "C:\\Users\\ilona\\source\\repos\\C#\\Classes\\Lab 11\\MovieList\\MovieList\\MovieList.csproj",
       "projectName": "MovieList",
-      "projectPath": "C:\\Users\\ilona\\source\\repos\\C#\\MovieList\\MovieList\\MovieList.csproj",
+      "projectPath": "C:\\Users\\ilona\\source\\repos\\C#\\Classes\\Lab 11\\MovieList\\MovieList\\MovieList.csproj",
       "packagesPath": "C:\\Users\\ilona\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ilona\\source\\repos\\C#\\MovieList\\MovieList\\obj\\",
+      "outputPath": "C:\\Users\\ilona\\source\\repos\\C#\\Classes\\Lab 11\\MovieList\\MovieList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -9,3 +9,14 @@ C:\Users\ilona\source\repos\C#\MovieList\MovieList\obj\Debug\netcoreapp3.0\Movie
 C:\Users\ilona\source\repos\C#\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.AssemblyInfo.cs
 C:\Users\ilona\source\repos\C#\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.dll
 C:\Users\ilona\source\repos\C#\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.pdb
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.exe
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.deps.json
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.runtimeconfig.json
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.runtimeconfig.dev.json
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.dll
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\bin\Debug\netcoreapp3.0\MovieList.pdb
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.csprojAssemblyReference.cache
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.AssemblyInfoInputs.cache
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.AssemblyInfo.cs
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.dll
+C:\Users\ilona\source\repos\C#\Classes\Lab 11\MovieList\MovieList\obj\Debug\netcoreapp3.0\MovieList.pdb
