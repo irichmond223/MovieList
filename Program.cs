@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace MovieList
 {
@@ -9,216 +8,92 @@ namespace MovieList
     {
         static void Main(string[] args)
         {
-            List<Movie> movie = new List<Movie>()
+            Movie M = new Movie();
+
+            List<Movie> movieList = new List<Movie>()
             {
-             new Movie ("Frozen","animated",1),
-             new Movie ("Toy Story","animated",1),
-             new Movie ("Cars","animated",1),
-             new Movie ("Interstellar","drama",2),
-             new Movie ("Black Swan","drama",2),
-             new Movie ("Fight Club","drama",2),
-             new Movie ("Us","horror",3),
-             new Movie ("Doctor Sleep","horror",3),
-             new Movie ("Saw","horror",3),
-             new Movie ("Avengers","scifi",4),
-             new Movie ("Black Panther","scifi",4),
-             new Movie ("Star Wars","scifi",4),
+                {new Movie("Toy Story", "animated", "1") },
+                {new Movie("Coco", "animated", "1") },
+                {new Movie("Wall-E", "animated", "1") },
+                {new Movie("Antz", "animated", "1") },
+                {new Movie("Balto", "animated", "1") },
+                {new Movie("John Q", "drama", "2") },
+                {new Movie("The Shawshank Redemption", "drama", "2") },
+                {new Movie("Forest Gump", "drama", "2") },
+                {new Movie("Cast Away", "drama", "2") },
+                {new Movie("Memiors of a Geisha", "drama", "2") },
+                {new Movie("Get Out", "horror", "3") },
+                {new Movie("Anabelle", "horror", "3") },
+                {new Movie("The Grudge", "horror", "3") },
+                {new Movie("Us", "horror", "3") },
+                {new Movie("IT", "horror", "3") },
+                {new Movie("Interstellar", "scifi", "4") },
+                {new Movie("Alien", "scifi", "4") },
+                {new Movie("Back to the Future", "scifi", "4") },
+                {new Movie("Star Wars", "scifi", "4") }
             };
 
+            movieList.Sort((x, y) => x.Title.CompareTo(y.Title));
+
             Console.WriteLine("Welcome to the Movie List Application!");
-            Console.WriteLine("There are 100 movies in this list.");
-
-            bool playAgain = true;
-            while (playAgain)
+            Console.WriteLine("What category are you interested in?)");
+            Console.WriteLine("1) Animated");
+            Console.WriteLine("2) Drama");
+            Console.WriteLine("3) Horror");
+            Console.WriteLine("4) Scifi");
+            Console.WriteLine();
+            string input = Console.ReadLine();
+            string ans = Movie.Change(input);
+            Console.WriteLine();
+            foreach (Movie m in movieList)
             {
-                Console.WriteLine("What category are you interested in? ");
-                Console.WriteLine("\n1) Animated\n2) Drama\n3) Horror\n4) Scifi");
+                //input = m.Category.ToLower();
 
-                string userInput = Validator();
-                //string input = "";
-                //int user = Validator(movie);
-
-                foreach (var item in movie)
+                if (m.Category == ans)
                 {
-                    if (userInput.ToLower() == item.Category.ToLower() && userInput == "animated")
-                    {
-                        Console.WriteLine(item.Title);
-                    }
-                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "drama")
-                    {
-                        Console.WriteLine(item.Title);
-                    }
-                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "horror")
-                    {
-                        Console.WriteLine(item.Title);
-                    }
-                    else if (userInput.ToLower() == item.Category.ToLower() && userInput == "scifi")
-                    {
-                        Console.WriteLine(item.Title);
-                    }
-
-                }
-
-                //foreach (var item in movie)
-                //{
-                //    if (user == item.categoryCodes && user == 1)
-                //    {
-                //        Console.WriteLine(item.Title);
-                //    }
-                //    else if (user == item.categoryCodes && user == 2)
-                //    {
-                //        Console.WriteLine(item.Title);
-                //    }
-                //    else if (user == item.categoryCodes && user == 3)
-                //    {
-                //        Console.WriteLine(item.Title);
-                //    }
-                //    else if (user == item.categoryCodes && user == 4)
-                //    {
-                //        Console.WriteLine(item.Title);
-                //    }
-                //}
-                bool continueAgain = true;
-                while (continueAgain)
-                {
-                    Console.WriteLine("Continue? (y/n)");
-                    string userContinue = Console.ReadLine().ToLower();
-                    if (userContinue == "y")
-                    {
-                        continueAgain = false;
-                        playAgain = true;
-                    }
-                    else if (userContinue == "n")
-                    {
-                        Console.WriteLine("Goodbye!");
-                        playAgain = false;
-                        continueAgain = false;
-                    }
+                    Console.WriteLine($"{m.Title}");
                 }
             }
 
         }
 
-        //Display movies by category having a user enter the name
-        //foreach (var item in movie)
+        //public static string Validate(string input)
         //{
-        //    if (input.ToLower() == item.Category.ToLower() && input == "animated")
-        //    {
-        //        Console.WriteLine(item.Title);
-        //    }
-        //    else if (input.ToLower() == item.Category.ToLower() && input == "drama")
-        //    {
-        //        Console.WriteLine(item.Title);
-        //    }
-        //    else if (input.ToLower() == item.Category.ToLower() && input == "horror")
-        //    {
-        //        Console.WriteLine(item.Title);
-        //    }
-        //    else if (input.ToLower() == item.Category.ToLower() && input == "scifi")
-        //    {
-        //        Console.WriteLine(item.Title);
-        //    }
-
-        //}
-
-        public static string Validator()
-        {
-            string stringUserInput = "";
-            do
-            {
-                try
-                {
-                    stringUserInput = Console.ReadLine().ToLower();
-
-                    if (string.IsNullOrEmpty(stringUserInput))
-                    {
-                        Console.WriteLine("Empty input, please try again.");
-                    }
-                }
-                catch (FormatException) //Used when the user typed in in a wrong format
-                {
-                    Console.WriteLine("Please use the correct format. Please try again.");
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("An error has occurred. Please try again.");
-                }
-
-            } while (string.IsNullOrEmpty(stringUserInput));
-
-            return stringUserInput;
-        }
-
-        //public static string Validator()
-        //{
-        //    bool repeat = true;
-        //    string input = "";
-        //    Regex validate = new Regex(@"^([A-Z-a-z])+$");
-        //    while (repeat)
+        //    //bool again = true;
+        //    while (true)
         //    {
         //        try
         //        {
-        //            input = Console.ReadLine();
-        //            if (validate.IsMatch(input))
+        //            if (input.ToLower() == "drama" || input.ToLower() == "animated" || input.ToLower() == "scifi" || input.ToLower() == "horror")
         //            {
-        //                repeat = false;
-        //                return input;
-        //            }
-        //            else if (input == String.Empty)
-        //            {
-        //                Console.WriteLine("Input cannot be empty.\n");
-        //                repeat = true;
+        //                //again = false;
+        //                return input.ToLower();
+
         //            }
         //            else
         //            {
-        //                Console.WriteLine("Im sorry thats not a valid input. Try again.\n");
-        //                repeat = true;
+        //                Console.WriteLine("Please enter a valid category");
+        //                input = Console.ReadLine();
         //            }
-
         //        }
-        //        catch (FormatException)
+        //        catch (FormatException ex)
         //        {
-        //            Console.WriteLine("Please use the correct format. Please try again.");
-        //            repeat = true;
+        //            Console.WriteLine("Please enter a valid category");
+        //            input = Console.ReadLine();
+        //            //again = true;
         //        }
-        //        catch (Exception)
+        //        catch (ArgumentNullException ex)
         //        {
-        //            Console.WriteLine("The error has occurred. Try again.\n");
-        //            repeat = true;
+        //            Console.WriteLine("Please enter a valid category");
+        //            input = Console.ReadLine();
+        //            //again = true;
         //        }
-                
-        //    }
-        //    return input;
-        //}
-
-        //public static int Validator(List<Movie> userInput)
-        //{
-        //    bool validateAgain = true;
-        //    int intUserInput = 0;
-        //    while (validateAgain)
-        //    {
-        //        try
+        //        catch (NullReferenceException ex)
         //        {
-        //            string input = Console.ReadLine();
-        //            intUserInput = int.Parse(input);
-        //            validateAgain = false;
-
-        //        }
-        //        catch (FormatException)
-        //        {
-        //            Console.WriteLine("Please use the correct format. Please try again.");
-        //            validateAgain = true;
-        //        }
-        //        catch (Exception)
-        //        {
-        //            Console.WriteLine("An error has occurred. Please try again.");
-        //            validateAgain = true;
+        //            Console.WriteLine("Please enter a valid category");
+        //            input = Console.ReadLine();
         //        }
         //    }
-        //    return intUserInput;
-
-        //}
+        //again = true;
     }
 }
-
-

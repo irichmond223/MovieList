@@ -6,11 +6,10 @@ namespace MovieList
 {
     class Movie
     {
-        //two private fields
         private string title;
         private string category;
-        public int categoryCodes;
-        //access private fields with the property
+        public string categoryCodes;
+
         public string Title
         {
             get { return title; }
@@ -23,14 +22,76 @@ namespace MovieList
             set { category = value; }
         }
 
-        //default constructor
-        public Movie() { }
-        //Build overload constructors 
-        public Movie(string title, string category,int categoryCodes )
+        public Movie()
         {
-            this.title = title;
-            this.category = category;
+
+        }
+        public Movie(string title, string category, string categoryCodes)
+        {
+            Title = title;
+            Category = category;
             this.categoryCodes = categoryCodes;
+        }
+
+        public static string Change(string input)
+        {
+            bool again = true;
+            string category = "";
+            while (again == true)
+            {
+                try
+                {
+                    if (input == "1")
+                    {
+                        category = "animation";
+                        again = false;
+                    }
+                    else if (input == "2")
+                    {
+                        category = "drama";
+                        again = false;
+                    }
+                    else if (input == "3")
+                    {
+                        category = "horror";
+                        again = false;
+                    }
+                    else if (input == "4")
+                    {
+                        category = "scifi";
+                        again = false;
+                    }
+                    else if (input.ToLower() == "drama" || input.ToLower() == "animated" || input.ToLower() == "scifi" || input.ToLower() == "horror")
+                    {
+                        again = false;
+                        category = input.ToLower();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid category");
+                        input = Console.ReadLine();
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Please enter a valid category");
+                    input = Console.ReadLine();
+                    //again = true;
+                }
+                catch (ArgumentNullException ex)
+                {
+                    Console.WriteLine("Please enter a valid category");
+                    input = Console.ReadLine();
+                    //again = true;
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine("Please enter a valid category");
+                    input = Console.ReadLine();
+                }
+            }
+
+            return category;
         }
     }
 }
